@@ -1,9 +1,9 @@
-import { storageService } from "./storageService.js";
-import { utilService } from "./utilService.js";
 import axios from "axios";
 
-const TOY_KEY = "toysDB";
-const TOY_URL = "//localhost:3030/api/toy/";
+const BASE_URL =
+  process.env.NODE_ENV !== "development"
+    ? "/api/toy"
+    : "//localhost:3030/api/toy";
 
 export const toyService = {
   query,
@@ -14,22 +14,22 @@ export const toyService = {
 };
 
 function query() {
-  return axios.get(TOY_URL).then((toys) => toys.data);
+  return axios.get(BASE_URL).then((toys) => toys.data);
 }
 
 function remove(toyId) {
-  return axios.delete(TOY_URL + toyId);
+  return axios.delete(BASE_URL + toyId);
 }
 
 function save(toy) {
-  if (toy._id) return axios.put(TOY_URL + toy._id, toy);
+  if (toy._id) return axios.put(BASE_URL + toy._id, toy);
   else {
-    return axios.post(TOY_URL, toy);
+    return axios.post(BASE_URL, toy);
   }
 }
 
 function getById(toyId) {
-  return axios.get(TOY_URL + toyId).then((res) => res.data);
+  return axios.get(BASE_URL + toyId).then((res) => res.data);
 }
 
 function getEmptyToy() {
