@@ -23,6 +23,9 @@ export default {
 
       return filteredToys;
     },
+    getAllToys(state) {
+      return state.toys;
+    },
   },
   mutations: {
     setToys(state, { toys }) {

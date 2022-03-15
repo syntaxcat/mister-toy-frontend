@@ -11,6 +11,5 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
-  // base: "/mister-toy-frontend",
   build: { outDir: "../mister-toy-backend/public", emptyOutDir: true },
 });

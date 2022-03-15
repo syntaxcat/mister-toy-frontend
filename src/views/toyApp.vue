@@ -41,11 +41,7 @@ export default {
             }
     },
     created() {
-        {
-            this.$store.dispatch({type: "loadToys"}).then(() => {
-                // this.toys = this.$store.toysForDisplay;
-            })
-        }
+            this.$store.dispatch({type: "loadToys"})
     },
     methods: {
         removeToy(toyId) {
