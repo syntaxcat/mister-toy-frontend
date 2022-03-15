@@ -25,7 +25,7 @@ export default {
     },
     computed:{
         toyId() {
-            return +this.$route.params.toyId;
+            return this.$route.params.toyId;
         }
     },
     methods: {

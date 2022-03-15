@@ -1,10 +1,10 @@
 <template>
     <section class="toy-details" v-if="toy">
         <h1>Details</h1>
-        {{toy.name}}
-        {{toy.price}}
-        {{toy.type}}
-        {{toy.inStock}}
+        {{ toy.name }}
+        {{ toy.price }}
+        {{ toy.type }}
+        {{ toy.inStock }}
     </section>
 </template>
 
@@ -13,7 +13,7 @@ import { toyService } from "../services/toyService.js"
 
 
 export default {
-    data(){
+    data() {
         return {
             toy: null,
         }
@@ -21,19 +21,19 @@ export default {
     created() {
         this.loadToy()
     },
-    computed:{
+    computed: {
         toyId() {
-            return +this.$route.params.toyId;
+            return this.$route.params.toyId;
         }
     },
     methods: {
-        loadToy(){            
+        loadToy() {
             toyService.getById(this.toyId).then(toy => {
                 this.toy = toy;
             })
         }
     },
-    watch:{
+    watch: {
         toyId: {
             handler() {
                 this.loadToy();
@@ -45,5 +45,4 @@ export default {
 </script>
 
 <style>
-
 </style>
