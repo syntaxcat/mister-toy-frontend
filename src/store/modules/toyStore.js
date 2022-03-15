@@ -56,7 +56,7 @@ export default {
     },
     addToy({ commit }, { toy }) {
       return toyService.save(toy).then((savedToy) => {
-        commit({ type: "addToy", savedToy });
+        commit({ type: "addToy", savedToy: savedToy.data });
       });
     },
     filter({ commit }, { filterBy }) {
