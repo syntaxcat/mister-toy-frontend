@@ -1,8 +1,9 @@
 <template>
-    <section class="toy-preview" >
+    <section class="toy-preview">
        <h3>{{toy.name}}</h3>
-       <h3>{{toy.price}}</h3>
-       <h3>{{toy.inStock}}</h3>
+       <hr>
+       <h3><span>Price:</span>{{toy.price}}</h3>
+       <h3><span>inStock:</span>{{toy.inStock}}</h3>
     </section>
 </template>
 

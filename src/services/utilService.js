@@ -2,6 +2,7 @@ export const utilService = {
   saveToStorage,
   loadFromStorage,
   makeId,
+  removeFromStorage,
 };
 
 function saveToStorage(key, value) {
@@ -11,6 +12,10 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
   let data = localStorage.getItem(key);
   return data ? JSON.parse(data) : undefined;
+}
+
+function removeFromStorage(key) {
+  localStorage.removeItem(key);
 }
 
 function makeId(length = 8) {

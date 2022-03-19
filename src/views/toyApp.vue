@@ -20,7 +20,7 @@
         </form>
             <hr>
 
-        <toyList :toys="toys" @removeToy="removeToy"/>
+        <toyList :toys="toys" :user="user" @removeToy="removeToy"/>
     </section>
   
 </template>
@@ -36,12 +36,15 @@ export default {
         }
     },
     computed: {
-            toys() {
-                return this.$store.getters.toysForDisplay
-            }
+        toys() {
+            return this.$store.getters.toysForDisplay
+        },
+        user() {
+            return this.$store.getters.loggedInUser
+        }
     },
     created() {
-            this.$store.dispatch({type: "loadToys"})
+        this.$store.dispatch({type: "loadToys"})
     },
     methods: {
         removeToy(toyId) {
