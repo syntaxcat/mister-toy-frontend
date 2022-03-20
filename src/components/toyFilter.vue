@@ -1,6 +1,5 @@
 <template>
     <section class="toy-filter">
-        <h1>Filter</h1>
         <input type="text" placeholder="Search by name" @input="filter" v-model="filterBy.name">
         <label>
             <input type="radio" @change="filter" v-model="filterBy.inStock" value="">Out of stock

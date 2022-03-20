@@ -1,9 +1,7 @@
 <template>
     <section class="toy-app" v-if="toys">
-        <h1>Toy App</h1>
         <toyFilter @filterBy="filter"/>
         <hr>
-
         <form @submit.prevent="addToy">
             <input type="text" v-model="emptyToy.name" placeholder="Enter name">
             <input type="number" v-model="emptyToy.price" placeholder="Enter price">
@@ -13,16 +11,13 @@
                 <option value="Adult">Adult</option>
                 <option value="Educational">Educational</option>
             </select>
-
             <label for="inStock">inStock</label>
             <input id="inStock" type="checkbox" v-model="emptyToy.inStock">
             <button type="submit">Add</button>
         </form>
             <hr>
-
         <toyList :toys="toys" :user="user" @removeToy="removeToy"/>
     </section>
-  
 </template>
 
 <script>
@@ -66,7 +61,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

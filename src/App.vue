@@ -18,7 +18,8 @@
     methods: {
       logout() {
         authService.logout().then(() => {
-          this.$router.push({ name: 'login-page' })
+          this.$store.dispatch({ type: "updateLoggedInUser", user: null });
+          this.$router.push({ name: "login-page" });
         });
       },
     },
@@ -48,5 +49,3 @@
 
   <RouterView />
 </template>
-
-<style></style>
