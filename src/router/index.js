@@ -4,6 +4,7 @@ import toyDetails from "../components/toyDetails.vue";
 import toyEdit from "../components/toyEdit.vue";
 import dashboard from "../components/dashboard.vue";
 import loginPage from "../components/loginPage.vue";
+import userDetails from "../components/userDetails.vue";
 import { userService } from "../services/userService.js";
 
 const router = createRouter({
@@ -28,6 +29,11 @@ const router = createRouter({
       path: "/dashboard",
       name: "dashboard",
       component: dashboard,
+    },
+    {
+      path: "/User-details",
+      name: "User-details",
+      component: userDetails,
     },
     {
       path: "/login-page",

@@ -33,14 +33,14 @@
 
 <template>
   <header class="app-header">
-    <RouterLink to="/toyApp" class="logo">
-      🎁ToyStore🧸
-    </RouterLink>
+    <RouterLink to="/toyApp" class="logo"> 🎁ToyStore🧸 </RouterLink>
     <nav>
       <div v-if="loggedInUser">
         <RouterLink to="/toyApp">Toys</RouterLink>
         |
         <RouterLink to="/dashboard">Dashboard</RouterLink>
+        |
+        <RouterLink to="/User-details">User-details</RouterLink> 
         |
         <button @click="logout">logout</button>
       </div>
