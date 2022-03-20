@@ -48,7 +48,6 @@ export default {
         commit({ type: "removeToy", id });
       });
     },
-
     loadToys({ commit }) {
       return toyService.query().then((toys) => {
         commit({ type: "setToys", toys });

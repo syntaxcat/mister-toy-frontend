@@ -33,7 +33,9 @@
 
 <template>
   <header class="app-header">
-    <span class="logo">🎁ToyStore🧸</span>
+    <RouterLink to="/toyApp" class="logo">
+      🎁ToyStore🧸
+    </RouterLink>
     <nav>
       <div v-if="loggedInUser">
         <RouterLink to="/toyApp">Toys</RouterLink>

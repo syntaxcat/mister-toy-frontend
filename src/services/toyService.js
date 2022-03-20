@@ -13,6 +13,16 @@ export const toyService = {
   getEmptyToy,
 };
 
+// async function add(review) {
+//   const addedReview = await httpService.post(`review`, review);
+
+//   // review.byUser = userService.getLoggedinUser()
+//   // review.aboutUser = await userService.getById(review.aboutUserId)
+//   // const addedReview = storageService.post('review', review)
+
+//   return addedReview;
+// }
+
 function query() {
   return axios.get(BASE_URL).then((toys) => toys.data);
 }

@@ -1,21 +1,38 @@
 <template>
     <section class="toy-details" v-if="toy">
         <h1>Details</h1>
-        {{ toy.name }}
-        {{ toy.price }}
-        {{ toy.type }}
-        {{ toy.inStock }}
+        Toy name: {{ toy.name }} |
+        Toy price: {{ toy.price }} |
+        Toy type: {{ toy.type }} |
+        In stock: {{ toy.inStock }}
+        <hr />
+        <pre>{{ toy.reviews }}</pre>
+        <form @submit.prevent="submitReview">
+            <label>
+                Review toy:
+                <textarea
+                    v-model="reviewToAdd.content"
+                    cols="30"
+                    rows="10"
+                    placeholder="Make your review here..."
+                ></textarea>
+            </label>
+            <button type="submit">Submit</button>
+        </form>
     </section>
 </template>
 
 <script>
 import { toyService } from "../services/toyService.js"
 
-
 export default {
     data() {
         return {
             toy: null,
+            reviewToAdd: {
+                content: '',
+                aboutToyId: this.$route.params.toyId,
+            }
         }
     },
     created() {
@@ -31,6 +48,9 @@ export default {
             toyService.getById(this.toyId).then(toy => {
                 this.toy = toy;
             })
+        },
+        submitReview() {
+            this.$store.dispatch({ type: 'addReview', review: this.reviewToAdd })
         }
     },
     watch: {
